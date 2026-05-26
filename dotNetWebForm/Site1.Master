@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="dotNetWebForm.Site1" %>
+
+<%@ Register Src="~/Header.ascx" TagName="myHeader" TagPrefix="aps" %>
+<%@ Register Src="~/Footer.ascx" TagName="myFooter" TagPrefix="aps" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <aps:myHeader ID="h1" runat="server"></aps:myHeader>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 420px; vertical-align:top;background-color:aqua">
+                        <center>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <aps:myFooter ID="f1" runat="server"></aps:myFooter>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </form>
+</body>
+</html>
