@@ -73,6 +73,7 @@
     <Content Include="Footer.ascx" />
     <Content Include="Header.ascx" />
     <Content Include="StudentForm.aspx" />
+    <Content Include="UserForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="StudentForm.aspx.designer.cs">
       <DependentUpon>StudentForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm.aspx.cs">
+      <DependentUpon>UserForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserForm.aspx.designer.cs">
+      <DependentUpon>UserForm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
