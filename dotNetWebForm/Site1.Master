@@ -28,8 +28,8 @@
                     <td>
                         <div id="menu">
                             <ul class="menu">
-                                <li><a href="#" class="parent"><span>Sign Up</span></a></li>
-                                <li><a href="#"><span>Sign In</span></a></li>
+                                <li><a href="Registration.aspx" class="parent"><span>Sign Up</span></a></li>
+                                <li><a href="Login.aspx"><span>Sign In</span></a></li>
                                 <li><a href="#"><span>Help</span></a></li>
                                 <li class="last"><a href="#"><span>Contacts</span></a></li>
                             </ul>

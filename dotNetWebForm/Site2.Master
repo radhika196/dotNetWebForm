@@ -35,7 +35,7 @@
                                     <div>
                                         <ul>
                                             <li><a href="Logout.aspx"><span>Logout</span></a></li>
-                                            <li><a href="#"><span>Change Password</span></a></li>
+                                            <li><a href="ChangePassword.aspx"><span>Change Password</span></a></li>
                                             <%--<li><a href="#"><span>Sub Item 4</span></a></li>
                                             <li><a href="#"><span>Sub Item 5</span></a></li>
                                             <li><a href="#"><span>Sub Item 6</span></a></li>
