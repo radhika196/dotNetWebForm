@@ -14,6 +14,10 @@ namespace dotNetWebForm
         SqlConnection conn = new SqlConnection("data source=RADHIKA\\SQLEXPRESS;initial catalog=DotNetDB;integrated security=true");
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["loginCredentialId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
             if (!IsPostBack)
             {
                 BindData();
@@ -21,14 +25,15 @@ namespace dotNetWebForm
                 BindCourse();
                 BindCity();
             }
-            
+
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtStudName.Text))
             {
-                if (btnSubmit.Text.Equals("Submit")){
+                if (btnSubmit.Text.Equals("Submit"))
+                {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("InsertStudent", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -40,7 +45,7 @@ namespace dotNetWebForm
                     conn.Close();
                     BindData();
                     ClearData();
-                     
+
                 }
                 else if (btnSubmit.Text.Equals("Update"))
                 {
@@ -57,15 +62,15 @@ namespace dotNetWebForm
                     BindData();
                     ClearData();
                     btnSubmit.Text = "Submit";
-                    
+
                 }
             }
             else
             {
                 Response.Write("Please provide all the data!!");
             }
-            
-                
+
+
 
         }
 
@@ -74,7 +79,7 @@ namespace dotNetWebForm
             if (e.CommandName.Equals("deleteBtn"))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("DeleteStudent ",conn);
+                SqlCommand cmd = new SqlCommand("DeleteStudent ", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id", e.CommandArgument);
                 cmd.ExecuteNonQuery();
@@ -103,7 +108,8 @@ namespace dotNetWebForm
             }
         }
 
-        public void BindData() {
+        public void BindData()
+        {
             conn.Open();
             SqlCommand cmd = new SqlCommand("JoinStudent", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);

@@ -16,7 +16,15 @@ namespace dotNetWebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ShowData();
+            if (Session["loginCredentialId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            if (!IsPostBack)
+            {
+                ShowData();
+            }
+           
         }
 
         public void ClearData()

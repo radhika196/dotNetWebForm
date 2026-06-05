@@ -14,6 +14,10 @@ namespace dotNetWebForm
         SqlConnection conn = new SqlConnection("data source=RADHIKA\\SQLEXPRESS;initial catalog=DotNetDB;integrated security=true");
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["loginCredentialId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
             if (!IsPostBack)
             {
                 BindLoginData();

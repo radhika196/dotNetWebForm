@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="dotNetWebForm.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="dotNetWebForm.Site2" %>
 
 <%@ Register Src="~/Header.ascx" TagName="myHeader" TagPrefix="aps" %>
 <%@ Register Src="~/Footer.ascx" TagName="myFooter" TagPrefix="aps" %>
@@ -10,7 +10,6 @@
     <script src="jquery.js"></script>
     <link href="menu.css" rel="stylesheet" />
     <script src="menu.js"></script>
-
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -28,8 +27,22 @@
                     <td>
                         <div id="menu">
                             <ul class="menu">
-                                <li><a href="#" class="parent"><span>Sign Up</span></a></li>
-                                <li><a href="#"><span>Sign In</span></a></li>
+                                <li><a href="Home.aspx" class="parent"><span>Home</span></a></li>
+                                <li><a href="EmpForm1.aspx"><span>Employee</span></a></li>
+                                <li><a href="StudentForm.aspx"><span>Student</span></a></li>
+                                <li><a href="UserForm.aspx"><span>User</span></a></li>
+                                <li><a href="#"><span>Setting</span></a>
+                                    <div>
+                                        <ul>
+                                            <li><a href="Logout.aspx"><span>Logout</span></a></li>
+                                            <li><a href="#"><span>Change Password</span></a></li>
+                                            <%--<li><a href="#"><span>Sub Item 4</span></a></li>
+                                            <li><a href="#"><span>Sub Item 5</span></a></li>
+                                            <li><a href="#"><span>Sub Item 6</span></a></li>
+                                            <li><a href="#"><span>Sub Item 7</span></a></li>--%>
+                                        </ul>
+                                    </div>
+                                </li>
                                 <li><a href="#"><span>Help</span></a></li>
                                 <li class="last"><a href="#"><span>Contacts</span></a></li>
                             </ul>
