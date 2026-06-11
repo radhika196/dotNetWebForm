@@ -51,7 +51,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="height: 420px; vertical-align: top; background-color: aqua">
+                    <td style="height: 420px; vertical-align: top; background-color: beige">
                         <center>
                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                             </asp:ContentPlaceHolder>

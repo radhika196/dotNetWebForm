@@ -33,6 +33,8 @@ namespace dotNetWebForm
             ageTxt.Text = string.Empty;
             deptTxt.Text = string.Empty;
             salaryTxt.Text = string.Empty;
+            txtSearch.Text = string.Empty;
+            ddlEmplChoice.SelectedValue = "0";
         }
 
 
@@ -107,5 +109,26 @@ namespace dotNetWebForm
             conn.Close();
         }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtSearch.Text))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SearchEmployee", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ddl", ddlEmplChoice.SelectedValue);
+                cmd.Parameters.AddWithValue("@searchTxt", txtSearch.Text);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Close();
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                grdView.DataSource = dt;
+                grdView.DataBind();
+            }
+            else
+            {
+                Response.Write("Please provide the input");
+            }
+        }
     }
 }

@@ -32,28 +32,19 @@ namespace dotNetWebForm
             if (txtNewPassword.Text.Equals(txtCnfNewPassword.Text))
             {
                 conn.Open();
-                SqlCommand cmd1 = new SqlCommand("Select * from RegistrationTbl where password='" + txtOldPassword.Text + "' and rid='" + Session["loginCredentialId"] + "'", conn);
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd1);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
+                SqlCommand cmd = new SqlCommand("update RegistrationTbl set password='" + txtNewPassword.Text + "' where rid='" + Session["loginCredentialId"] + "' and password='" + txtOldPassword.Text + "'", conn);
+                int i = cmd.ExecuteNonQuery();
                 conn.Close();
-                if (dt.Rows.Count == 1) {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("update RegistrationTbl set password='" + txtNewPassword.Text + "' where rid='" + Session["loginCredentialId"] + "' and password='" + txtOldPassword.Text + "'", conn);
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                    clearData();
-                    lblChangePass.Text = "Password changed successfully";
-                    Response.Redirect("Login.aspx");
-                }
-                else
+                clearData();
+                if (i == 0)
                 {
                     lblChangePass.Text = "Old Password do not match!!";
                 }
-                
-                
-                
-
+                else if (i == 1)
+                {
+                    lblChangePass.Text = "Password changed successfully";
+                    Response.Redirect("Login.aspx");
+                }
             }
             else
             {
